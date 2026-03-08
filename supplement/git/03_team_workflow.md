@@ -1,6 +1,6 @@
 # 補足 05. チーム開発ワークフロー（複数人協働演習）
 
-> **位置づけ:** この補足資料は本編の発展内容です。[08_branch_strategy.md](../08_branch_strategy.md) と [09_pull_request.md](../09_pull_request.md) を学んでから読むことを推奨します。
+> **位置づけ:** この補足資料は本編の発展内容です。[08_branch_strategy.md](../../08_branch_strategy.md) と [09_pull_request.md](../../09_pull_request.md) を学んでから読むことを推奨します。
 
 
 このドキュメントでは、1つのリポジトリを複数人で共有する方法を学びます。
@@ -619,6 +619,6 @@ git fetch --prune
 
 ---
 
-[supplement/06_command_reference.md](./supplement/06_command_reference.md) — コマンドリファレンス早見表
+[supplement/git/04_command_reference.md](./04_command_reference.md) — コマンドリファレンス早見表
 
-[補足資料一覧に戻る](../10_supplement_index.md)
+[補足資料一覧に戻る](../../10_supplement_index.md)

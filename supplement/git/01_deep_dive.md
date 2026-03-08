@@ -1,6 +1,6 @@
 # 補足 03. Git の内部しくみ（詳細）
 
-> **位置づけ:** この補足資料は [06_git_internals.md](../06_git_internals.md) の発展内容です。
+> **位置づけ:** この補足資料は [06_git_internals.md](../../06_git_internals.md) の発展内容です。
 > Git の基本操作（add/commit/push）に慣れてから読むことを推奨します。
 
 ---
@@ -210,4 +210,99 @@ git bisect good <commit>
 
 ---
 
-[補足資料一覧に戻る](../10_supplement_index.md)
+## git status の3状態
+
+`git status` でファイルがどの状態にあるか確認できます。
+
+```
+Untracked  ─git add─▶  Staged  ─git commit─▶  リポジトリへ
+（新規・未管理）             （コミット待ち）
+
+Modified   ─git add─▶  Staged
+（変更済み・未add）
+```
+
+| 状態 | 意味 | `git status` の表示 |
+|---|---|---|
+| Untracked | 新規作成で Git が管理していない | `Untracked files:` |
+| Modified | 既存ファイルを変更済み・未 add | `Changes not staged for commit:` |
+| Staged | `git add` 済み・次のコミット待ち | `Changes to be committed:` |
+
+### 状態を戻すコマンド
+
+| 操作 | コマンド |
+|---|---|
+| Staged → Modified に戻す | `git restore --staged <file>` |
+| Modified → 最後のコミット状態に戻す | `git restore <file>` |
+
+> **注意：** `git restore <file>` は変更を完全に破棄します。元に戻せないため慎重に。
+
+---
+
+## git diff の3種類
+
+`git diff` は「どの領域を比較するか」によって3パターンあります。
+
+```
+ワーキングツリー ─── git diff ──────────────▶ ステージ
+      │                                          │
+      │                           git diff --staged
+      │                                          ▼
+      │                                  ローカルリポジトリ（HEAD）
+      │                                          │
+      └──────────── git diff HEAD ───────────────▶
+```
+
+| コマンド | 何を比較するか | 使いどころ |
+|---|---|---|
+| `git diff` | ワーキングツリー vs ステージ | `git add` の前に確認 |
+| `git diff --staged` | ステージ vs 最新コミット | `git commit` の前に確認 |
+| `git diff HEAD` | ワーキングツリー vs 最新コミット | 前回コミットから全変更を確認 |
+
+### ブランチ間の比較
+
+```bash
+# main と feature ブランチの差分
+git diff main..feature/add-login
+
+# ブランチが分岐してからの差分
+git diff main...feature/add-login
+```
+
+---
+
+## git log の読み方
+
+```bash
+git log --oneline --graph --all
+```
+
+```
+* a1b2c3d (HEAD -> main, origin/main) feat: ログイン機能を追加
+*   9f8e7d6 Merge branch 'feature/add-button'
+|\
+| * 7a8b9c0 feat: ボタンを追加
+| * d4e5f6a feat: フォームを追加
+* | f1e2d3c fix: README のタイポを修正
+|/
+* e3f4a5b feat: 最初のコミット
+```
+
+| 記号 | 意味 |
+|---|---|
+| `*` | 1つのコミット |
+| `(HEAD -> main)` | 今いる場所 → ブランチ名 |
+| `(origin/main)` | GitHub 上のブランチの位置 |
+| `|\` と `|/` | ブランチが分岐・合流した地点 |
+
+### よく使うオプション
+
+```bash
+git log --oneline -10            # 直近10件
+git log --oneline -- README.md   # 特定ファイルの変更履歴
+git log --oneline --grep="feat"  # キーワードを含むコミット
+```
+
+---
+
+[補足資料一覧に戻る](../../10_supplement_index.md)
