@@ -1,4 +1,4 @@
-# 07. ブランチ戦略
+# 08. ブランチ戦略
 
 複数人で同じリポジトリを触るとき、「誰がどのファイルを編集しているか」を管理しないと衝突が起きます。
 このドキュメントでは、チームで使える最小限のブランチ戦略を学びます。
@@ -101,12 +101,14 @@ GitHub Flow は GitHub 社が提案する、シンプルで学びやすいブラ
 
 ```bash
 # まず main を最新の状態にする
-git checkout main
+git switch main
 git pull origin main
 
 # 新しいブランチを作って移動
-git checkout -b feature/調査メモ-クラウド入門
+git switch -c feature/調査メモ-クラウド入門
 ```
+
+> **補足:** `git switch` は Git 2.23 以降で使える新しい記法です。`git checkout main` / `git checkout -b` と同じ動作をしますが、より分かりやすいコマンド名になっています。本ドキュメントでは `git switch` を推奨します。
 
 ブランチを切ることで、`main` を汚さずに自由に実験できます。
 
@@ -132,7 +134,7 @@ git push -u origin feature/調査メモ-クラウド入門
 ```
 
 push 後、GitHub の画面に「Compare & pull request」ボタンが表示されます。
-クリックして Pull Request を作成します（詳細は [08_pull_request.md](./08_pull_request.md) で解説）。
+クリックして Pull Request を作成します（詳細は [09_pull_request.md](./09_pull_request.md) で解説）。
 
 #### ステップ 4: マージ
 
@@ -316,7 +318,7 @@ error: failed to push some refs to 'github.com:your-org/your-repo.git'
 
 ```bash
 # main ブランチに移動
-git checkout main
+git switch main
 
 # リモートの最新状態を取得
 git pull origin main
@@ -340,7 +342,7 @@ Fast-forward
 ### ステップ 1: 作業ブランチを作る
 
 ```bash
-git checkout -b feature/markdown-調査メモ
+git switch -c feature/markdown-調査メモ
 ```
 
 実行結果：
@@ -459,7 +461,7 @@ PR がマージされたら、作業ブランチを削除します。
 
 ```bash
 # main を最新にする
-git checkout main
+git switch main
 git pull origin main
 
 # ローカルの作業ブランチを削除
@@ -473,11 +475,11 @@ Deleted branch feature/markdown-調査メモ (was a1b2c3d).
 ### フロー全体のまとめ
 
 ```
-git checkout main
+git switch main
 git pull origin main
         │
         ▼
-git checkout -b feature/[ブランチ名]
+git switch -c feature/[ブランチ名]
         │
         ▼
 ファイルを編集・作成
@@ -496,7 +498,7 @@ GitHub で Pull Request を作成
 レビュー → マージ
         │
         ▼
-git checkout main
+git switch main
 git pull origin main
 git branch -d feature/[ブランチ名]
 ```
@@ -517,4 +519,4 @@ git branch -d feature/[ブランチ名]
 
 ## 次のステップ
 
-[08_pull_request.md](./08_pull_request.md) — Pull Request ワークフロー
+[09_pull_request.md](./09_pull_request.md) — Pull Request ワークフロー

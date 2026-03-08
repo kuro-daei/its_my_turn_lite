@@ -1,4 +1,4 @@
-# 03. Claude でディープリサーチ
+# 04. Claude でディープリサーチ
 
 このドキュメントでは、Claude を単なるチャットツールではなく「調査エンジン」として活用する方法を学びます。
 Google 検索との違い、Web 検索ツールとの連携、ファイナンシャル・ニュース分野での具体的なプロンプト例、そして調査結果を Markdown にまとめるテクニックを順に解説します。
@@ -594,4 +594,4 @@ VS Code で開いたら:
 
 ---
 
-[06_markdown.md](./06_markdown.md) — Markdown 記法
+[05_github_publish.md](./05_github_publish.md) — 調査結果を GitHub に公開する

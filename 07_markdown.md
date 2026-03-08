@@ -1,4 +1,4 @@
-# 06. Markdown 記法
+# 07. Markdown 記法
 
 > **対象読者:** Git・GitHub・VS Code の基本操作を覚えた初心者
 > **前提:** WSL ターミナル・VS Code・Git が使える状態であること
@@ -640,4 +640,4 @@ GitHub では標準 Markdown を拡張した **GFM（GitHub Flavored Markdown）
 
 ---
 
-次のステップ: [07_branch_strategy.md](./07_branch_strategy.md) — ブランチ戦略
+次のステップ: [08_branch_strategy.md](./08_branch_strategy.md) — ブランチ戦略

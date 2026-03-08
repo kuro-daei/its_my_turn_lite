@@ -848,4 +848,4 @@ Claude Code は Git コマンドを代わりに実行できます。
 
 ---
 
-次のページ: [03_research_with_claude.md](./03_research_with_claude.md) — Claude でディープリサーチ
+次のページ: [03_agent_workflow.md](./03_agent_workflow.md) — エージェントワークフロー

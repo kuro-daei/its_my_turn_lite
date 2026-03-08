@@ -1,4 +1,4 @@
-# 11. プラグイン・スキル・エージェントの活用
+# 03. プラグイン・スキル・エージェントの活用
 
 このドキュメントでは、Claude Code の拡張機能を活用してできることの幅を広げる方法を学びます。
 プラグイン・スキル・エージェント・MCP サーバーの4つの仕組みを理解し、実際に researcher/writer/reviewer という3エージェントが連携するワークフローを構築します。
@@ -513,4 +513,4 @@ echo "research/" >> .gitignore
 ---
 
 **次の章へ:**
-[90_command_reference.md](./90_command_reference.md) — コマンドリファレンス早見表
+[04_research_with_claude.md](./04_research_with_claude.md) — Claude でディープリサーチ

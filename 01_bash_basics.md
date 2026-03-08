@@ -821,6 +821,6 @@ mkdir newdir; cd newdir; pwd
 ### 次のステップ
 
 Bash の基本コマンドを習得しました。
-次は GitHub でリポジトリを作成し、実際にファイルを公開するワークフローを体験しましょう。
+次は Claude Code の使い方を学び、AI を活用した作業効率化を体験しましょう。
 
-[04_github_publish.md](./04_github_publish.md) — 調査結果を GitHub に公開する
+[02_claude_usage.md](./02_claude_usage.md) — Claude Code の使い方
