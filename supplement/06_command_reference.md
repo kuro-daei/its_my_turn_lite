@@ -404,6 +404,6 @@ dist/
 
 ---
 
-*このリファレンスは `01_bash_basics.md` から `11_team_workflow.md` の内容を補完する付録です。詳しい解説は各章を参照してください。*
+*このリファレンスは \`01_bash_basics.md\` から \`09_pull_request.md\` の本編、および補足資料の内容を補完する付録です。詳しい解説は各章を参照してください。*
 
-[補足資料一覧に戻る](../91_supplement_index.md)
+[補足資料一覧に戻る](../10_supplement_index.md)

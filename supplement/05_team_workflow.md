@@ -621,4 +621,4 @@ git fetch --prune
 
 [supplement/06_command_reference.md](./supplement/06_command_reference.md) — コマンドリファレンス早見表
 
-[補足資料一覧に戻る](../91_supplement_index.md)
+[補足資料一覧に戻る](../10_supplement_index.md)

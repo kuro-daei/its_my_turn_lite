@@ -141,4 +141,4 @@ MCP Servers:
 
 ---
 
-[補足資料一覧に戻る](../91_supplement_index.md)
+[補足資料一覧に戻る](../10_supplement_index.md)

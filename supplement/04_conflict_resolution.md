@@ -571,4 +571,4 @@ stash を pop しようとしたブランチで、退避中に同じ箇所が変
 
 次のステップ: [supplement/05_team_workflow.md](./supplement/05_team_workflow.md) — チーム開発ワークフロー
 
-[補足資料一覧に戻る](../91_supplement_index.md)
+[補足資料一覧に戻る](../10_supplement_index.md)
