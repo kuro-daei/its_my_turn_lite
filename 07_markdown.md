@@ -306,13 +306,13 @@ git push -u origin feature/add-notes
 [表示テキスト](URL)
 
 [GitHub](https://github.com)
-[コマンド早見表を見る](./supplement/06_command_reference.md)
+[コマンド早見表を見る](./supplement/git/04_command_reference.md)
 ```
 
 **表示結果:**
 
 - `[GitHub](https://github.com)` → [GitHub](https://github.com)
-- `[コマンド早見表を見る](./supplement/06_command_reference.md)` → 同じリポジトリ内のファイルへのリンクとして機能
+- `[コマンド早見表を見る](./supplement/git/04_command_reference.md)` → 同じリポジトリ内のファイルへのリンクとして機能
 
 ---
 

@@ -1,8 +1,8 @@
 # 補足 02. Claude と Git の連携フロー（詳細）
 
-> **位置づけ:** この補足資料は [02_claude_usage.md](../02_claude_usage.md) の発展内容です。
-> Git の基本操作（[06_git_internals.md](../06_git_internals.md)）と
-> ブランチ戦略（[08_branch_strategy.md](../08_branch_strategy.md)）を学んでから読むと理解が深まります。
+> **位置づけ:** この補足資料は [02_claude_usage.md](../../02_claude_usage.md) の発展内容です。
+> Git の基本操作（[06_git_internals.md](../../06_git_internals.md)）と
+> ブランチ戦略（[08_branch_strategy.md](../../08_branch_strategy.md)）を学んでから読むと理解が深まります。
 
 ---
 
@@ -112,4 +112,4 @@ Claude Code は Git コマンドを代わりに実行できます。
 
 ---
 
-[補足資料一覧に戻る](../10_supplement_index.md)
+[補足資料一覧に戻る](../../10_supplement_index.md)

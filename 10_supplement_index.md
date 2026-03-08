@@ -5,16 +5,22 @@
 
 ---
 
-## 補足資料
+## Claude 関連
 
 | ファイル | 内容 | 推奨する前提知識 |
 |---|---|---|
-| [supplement/01_mcp.md](./supplement/01_mcp.md) | MCP（Model Context Protocol）と外部ツール連携 | [02_claude_usage.md](./02_claude_usage.md) |
-| [supplement/02_claude_git_flow.md](./supplement/02_claude_git_flow.md) | Claude と Git の連携フロー詳細 | [06_git_internals.md](./06_git_internals.md)・[08_branch_strategy.md](./08_branch_strategy.md) |
-| [supplement/03_git_deep_dive.md](./supplement/03_git_deep_dive.md) | Git の内部しくみ詳細（.git構造・オブジェクトモデル・detached HEAD など） | [06_git_internals.md](./06_git_internals.md) |
-| [supplement/04_conflict_resolution.md](./supplement/04_conflict_resolution.md) | マージとコンフリクト解決 | [09_pull_request.md](./09_pull_request.md) |
-| [supplement/05_team_workflow.md](./supplement/05_team_workflow.md) | チーム開発ワークフロー（複数人協働演習） | [08_branch_strategy.md](./08_branch_strategy.md)・[09_pull_request.md](./09_pull_request.md) |
-| [supplement/06_command_reference.md](./supplement/06_command_reference.md) | Git・GitHub コマンドリファレンス早見表 | 本編全般 |
+| [supplement/claude/01_mcp.md](./supplement/claude/01_mcp.md) | MCP（Model Context Protocol）と外部ツール連携 | [02_claude_usage.md](./02_claude_usage.md) |
+| [supplement/claude/02_cli.md](./supplement/claude/02_cli.md) | Claude CLI 操作リファレンス（ワンショットモード・起動オプション） | [02_claude_usage.md](./02_claude_usage.md) |
+| [supplement/claude/03_git_flow.md](./supplement/claude/03_git_flow.md) | Claude と Git の連携フロー詳細 | [05_github_publish.md](./05_github_publish.md)・[06_git_internals.md](./06_git_internals.md) |
+
+## Git 関連
+
+| ファイル | 内容 | 推奨する前提知識 |
+|---|---|---|
+| [supplement/git/01_deep_dive.md](./supplement/git/01_deep_dive.md) | Git の内部しくみ詳細（.git構造・オブジェクトモデル・git diff・git log） | [06_git_internals.md](./06_git_internals.md) |
+| [supplement/git/02_conflict.md](./supplement/git/02_conflict.md) | マージとコンフリクト解決 | [09_pull_request.md](./09_pull_request.md) |
+| [supplement/git/03_team_workflow.md](./supplement/git/03_team_workflow.md) | チーム開発ワークフロー（複数人協働演習） | [08_branch_strategy.md](./08_branch_strategy.md)・[09_pull_request.md](./09_pull_request.md) |
+| [supplement/git/04_command_reference.md](./supplement/git/04_command_reference.md) | Git・GitHub コマンドリファレンス早見表 | 本編全般 |
 
 ---
 

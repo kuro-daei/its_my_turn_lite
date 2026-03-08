@@ -1,6 +1,6 @@
 # 補足 01. MCP（Model Context Protocol）と外部ツール連携
 
-> **位置づけ:** この補足資料は [02_claude_usage.md](../02_claude_usage.md) の発展内容です。
+> **位置づけ:** この補足資料は [02_claude_usage.md](../../02_claude_usage.md) の発展内容です。
 > Claude Code の基本操作に慣れてから読むことを推奨します。
 
 ---
@@ -141,4 +141,4 @@ MCP Servers:
 
 ---
 
-[補足資料一覧に戻る](../10_supplement_index.md)
+[補足資料一覧に戻る](../../10_supplement_index.md)

@@ -1,6 +1,6 @@
 # 補足 04. マージとコンフリクト解決
 
-> **位置づけ:** この補足資料は本編の発展内容です。[09_pull_request.md](../09_pull_request.md) を学んでから読むことを推奨します。
+> **位置づけ:** この補足資料は本編の発展内容です。[09_pull_request.md](../../09_pull_request.md) を学んでから読むことを推奨します。
 
 
 コードを複数人で編集していると、いつか必ず「コンフリクト（競合）」という壁にぶつかります。
@@ -569,6 +569,6 @@ stash を pop しようとしたブランチで、退避中に同じ箇所が変
 
 ---
 
-次のステップ: [supplement/05_team_workflow.md](./supplement/05_team_workflow.md) — チーム開発ワークフロー
+次のステップ: [supplement/git/03_team_workflow.md](./03_team_workflow.md) — チーム開発ワークフロー
 
-[補足資料一覧に戻る](../10_supplement_index.md)
+[補足資料一覧に戻る](../../10_supplement_index.md)
