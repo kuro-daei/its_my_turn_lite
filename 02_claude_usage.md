@@ -2,7 +2,7 @@
 
 > この章では、ターミナルで動く AI アシスタント「Claude Code（CLI）」の基本をひととおり学びます。
 > Web ブラウザの Claude との違いから始め、起動・会話・ファイル操作・プランモード・CLAUDE.md まで、初心者でも迷わないよう順を追って解説します。
-> MCP 連携や Git との詳細な連携フローは [補足資料](../10_supplement_index.md) を参照してください。
+> MCP 連携や Git との詳細な連携フローは [補足資料](./10_supplement_index.md) を参照してください。
 
 ---
 
@@ -100,7 +100,7 @@ claude --version
 **Claude はカレントディレクトリのファイルを読み書きするので、必ずプロジェクトフォルダの中で起動してください。**
 
 ```bash
-cd ~/works/client-research
+cd ~/works/hakuhodo
 claude
 ```
 
@@ -109,7 +109,7 @@ claude
 ```
 Do you trust the files in this folder?
 
-  ~/works/client-research
+  ~/works/hakuhodo
 
 Claude Code may read and execute files in this folder.
 
@@ -147,7 +147,7 @@ Opening browser for authentication...
 ### 2-3. 2 回目以降の起動
 
 ```bash
-cd ~/works/client-research
+cd ~/works/hakuhodo
 claude
 ```
 
@@ -397,10 +397,10 @@ Claude Code を起動すると、プロジェクトフォルダにある `CLAUDE
 ### 6-2. 配置場所
 
 ```
-client-research/       ← プロジェクトルート
+hakuhodo/              ← プロジェクトルート
 ├── CLAUDE.md         ← ここに置く（プロジェクト用）
 ├── README.md
-└── notes/
+└── info/
 ```
 
 また、ホームディレクトリに置くとすべてのプロジェクトで共通して読み込まれます：
@@ -413,11 +413,11 @@ client-research/       ← プロジェクトルート
 サブフォルダに置くことも可能で、そのフォルダ内の作業時に読み込まれます：
 
 ```
-client-research/
+hakuhodo/
 ├── CLAUDE.md              ← プロジェクト全体のルール
-└── notes/
-    ├── CLAUDE.md          ← notes/ 配下のみに適用されるルール
-    └── what-is-stock.md
+└── info/
+    ├── CLAUDE.md          ← info/ 配下のみに適用されるルール
+    └── overview.md
 ```
 
 > **優先順位:** プロジェクトの `CLAUDE.md` はユーザー共通の設定を上書きします。
@@ -431,19 +431,19 @@ client-research/
 
 ## プロジェクト概要
 
-株価・経済ニュースの調査メモをまとめるリポジトリです。
+博報堂との取引情報・調査メモをまとめるリポジトリです。
 Claude でリサーチした内容を Markdown ファイルに保存し、GitHub で管理します。
 
 ## フォルダ構成
 
-client-research/
+hakuhodo/
 ├── README.md     プロジェクトの説明
-└── notes/        調査メモを置くフォルダ
+└── info/         調査メモを置くフォルダ
 
 ## ファイル命名規則
 
-調査メモのファイル名: YYYY-MM-DD_テーマ.md
-例: 2026-03-08_toyota-earnings.md
+調査メモのファイル名: テーマ.md
+例: overview.md、contacts.md
 
 ## コミットメッセージルール
 
@@ -455,8 +455,8 @@ Conventional Commits 形式を使用：
 ## 注意事項
 
 - 調査メモには必ず調査日と情報源を記載する
-- 投資判断を促す内容は書かない（参考情報として扱う）
-- API キーや個人情報はコミットしない
+- 個人情報・機密情報はコミットしない
+- API キーや認証情報はコミットしない
 ```
 
 ### 6-4. CLAUDE.md を自動生成する

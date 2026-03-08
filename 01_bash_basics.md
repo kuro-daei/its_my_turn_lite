@@ -1,6 +1,6 @@
 # 01. Bash コマンド入門
 
-これから Claude を使って経済ニュースをリサーチし、GitHub に公開するプロジェクトを進めます。
+これから Claude を使って博報堂との取引情報を整理・管理するプロジェクトを進めます。
 その第一歩として、ターミナルで**プロジェクトフォルダを作る**ところから始めましょう。
 
 本章では `pwd` `cd` `ls` `mkdir` `touch` `echo` `cat` `rm` という基本コマンドを、
@@ -85,9 +85,9 @@ eiji@DESKTOP-ABC123:~$
 └── home/
     └── eiji/                    ← ホームディレクトリ（~ と表記）
         └── works/               ← 作業フォルダ（この章で作る）
-            └── client-research/  ← リサーチプロジェクト（この章で作る）
+            └── hakuhodo/        ← 博報堂プロジェクト（この章で作る）
                 ├── README.md    ← プロジェクトの説明ファイル
-                └── notes/       ← 調査メモを置くフォルダ
+                └── info/        ← 調査メモを置くフォルダ
 ```
 
 Windows に慣れている方は `C:\Users\eiji\works` のような書き方を見たことがあると思います。
@@ -133,7 +133,7 @@ pwd
 どこにいても同じ場所を指します。
 
 ```
-/home/eiji/works/client-research/README.md
+/home/eiji/works/hakuhodo/README.md
 ```
 
 #### 相対パス
@@ -142,7 +142,7 @@ pwd
 
 ```bash
 # カレントディレクトリが /home/eiji のとき
-works/client-research/README.md    # → /home/eiji/works/client-research/README.md を指す
+works/hakuhodo/README.md    # → /home/eiji/works/hakuhodo/README.md を指す
 ```
 
 相対パスの特殊な記法：
@@ -161,7 +161,7 @@ works/client-research/README.md    # → /home/eiji/works/client-research/README
 |---|---|
 | `~` | `/home/eiji` |
 | `~/works` | `/home/eiji/works` |
-| `~/works/client-research` | `/home/eiji/works/client-research` |
+| `~/works/hakuhodo` | `/home/eiji/works/hakuhodo` |
 
 ---
 
@@ -213,26 +213,26 @@ pwd
 | `cd ../..` | 二つ上のディレクトリへ移動 | 複数階層さかのぼりたいとき |
 | `cd -` | 直前にいたディレクトリへ移動 | 2 か所を行き来したいとき |
 | `cd /home/eiji/works` | 絶対パスで移動 | どこからでも確実に移動したいとき |
-| `cd client-research` | 相対パスで移動 | 子ディレクトリに移動するとき |
+| `cd hakuhodo` | 相対パスで移動 | 子ディレクトリに移動するとき |
 
 `cd ..` の動きを図で確認しましょう。
 
 ```
-移動前：/home/eiji/works/client-research にいる
+移動前：/home/eiji/works/hakuhodo にいる
 
 /home/eiji/
 └── works/
-    └── client-research/    ← ここにいる
+    └── hakuhodo/    ← ここにいる
         ├── README.md
-        └── notes/
+        └── info/
 
 cd .. を実行
 
 移動後：/home/eiji/works にいる
 
 /home/eiji/
-└── works/                 ← ここに移動した
-    └── client-research/
+└── works/           ← ここに移動した
+    └── hakuhodo/
 ```
 
 ### よくあるミスと対処法
@@ -240,11 +240,11 @@ cd .. を実行
 #### ミス 1：スペルミス
 
 ```bash
-cd stok-research    # スペルミス
+cd hakuhodo    # スペルミスがあると
 ```
 
 ```
-bash: cd: stok-research: No such file or directory
+bash: cd: hakuhodo: No such file or directory
 ```
 
 対処法：`Tab` キーで補完しましょう（詳しくは [6 章](#6-ターミナル操作のコツ)）。
@@ -254,15 +254,15 @@ bash: cd: stok-research: No such file or directory
 Linux は **大文字・小文字を区別します**。
 
 ```bash
-cd Stock-Research    # 間違い（大文字）
+cd Hakuhodo    # 間違い（大文字）
 ```
 
 ```
-bash: cd: Stock-Research: No such file or directory
+bash: cd: Hakuhodo: No such file or directory
 ```
 
 ```bash
-cd client-research    # 正しい（小文字）
+cd hakuhodo    # 正しい（小文字）
 ```
 
 対処法：`ls` でディレクトリ名を確認してから入力するか、`Tab` 補完を使いましょう。
@@ -301,7 +301,7 @@ ls works
 ```
 
 ```
-client-research
+hakuhodo
 ```
 
 ### オプションで表示内容を変える
@@ -309,13 +309,13 @@ client-research
 #### ls -l（詳細表示）
 
 ```bash
-ls -l ~/works/client-research
+ls -l ~/works/hakuhodo
 ```
 
 ```
 total 4
 -rw-r--r-- 1 eiji eiji  38 Mar  8 10:00 README.md
-drwxr-xr-x 2 eiji eiji 512 Mar  8 10:00 notes
+drwxr-xr-x 2 eiji eiji 512 Mar  8 10:00 info
 ```
 
 各列の意味：
@@ -354,7 +354,7 @@ ls -a ~
 最もよく使う組み合わせです。
 
 ```bash
-ls -la ~/works/client-research
+ls -la ~/works/hakuhodo
 ```
 
 ```
@@ -362,7 +362,7 @@ total 8
 drwxr-xr-x 3 eiji eiji  512 Mar  8 10:00 .
 drwxr-xr-x 3 eiji eiji  512 Mar  8 10:00 ..
 -rw-r--r-- 1 eiji eiji   38 Mar  8 10:00 README.md
-drwxr-xr-x 2 eiji eiji  512 Mar  8 10:00 notes
+drwxr-xr-x 2 eiji eiji  512 Mar  8 10:00 info
 ```
 
 よく使うオプション一覧：
@@ -410,28 +410,28 @@ works
 
 ### Step 2：プロジェクトフォルダを作る
 
-`works` に移動して、リサーチプロジェクト用のフォルダを作ります。
+`works` に移動して、博報堂プロジェクト用のフォルダを作ります。
 
 ```bash
 cd ~/works
-mkdir client-research
+mkdir hakuhodo
 ls
 ```
 
 ```
-client-research
+hakuhodo
 ```
 
-`client-research` の中に入り、メモを置く `notes` フォルダも作ります。
+`hakuhodo` の中に入り、情報を置く `info` フォルダも作ります。
 
 ```bash
-cd client-research
-mkdir notes
+cd hakuhodo
+mkdir info
 ls
 ```
 
 ```
-notes
+info
 ```
 
 現在地を確認しましょう。
@@ -441,7 +441,7 @@ pwd
 ```
 
 ```
-/home/eiji/works/client-research
+/home/eiji/works/hakuhodo
 ```
 
 ### Step 3：README ファイルを作って書き込む
@@ -456,7 +456,7 @@ ls -l
 ```
 total 0
 -rw-r--r-- 1 eiji eiji 0 Mar  8 10:00 README.md
-drwxr-xr-x 2 eiji eiji 512 Mar  8 10:00 notes
+drwxr-xr-x 2 eiji eiji 512 Mar  8 10:00 info
 ```
 
 サイズが `0` になっているのは、中身のない空ファイルだからです。
@@ -464,24 +464,24 @@ drwxr-xr-x 2 eiji eiji 512 Mar  8 10:00 notes
 `echo` でテキストを書き込みます。`>` を使うとファイルに**上書き**保存できます。
 
 ```bash
-echo "# 株価リサーチ" > README.md
+echo "# 博報堂 プロジェクト" > README.md
 cat README.md
 ```
 
 ```
-# 株価リサーチ
+# 博報堂 プロジェクト
 ```
 
 `>>` を使うと、既存の内容を消さずに**追記**できます。
 
 ```bash
-echo "経済ニュースの調査メモをここに集める" >> README.md
+echo "博報堂との取引情報・調査メモをここに集める" >> README.md
 cat README.md
 ```
 
 ```
-# 株価リサーチ
-経済ニュースの調査メモをここに集める
+# 博報堂 プロジェクト
+博報堂との取引情報・調査メモをここに集める
 ```
 
 | 記号 | 動作 | 元の内容 |
@@ -502,7 +502,7 @@ ls
 ```
 
 ```
-README.md  notes  temp.txt
+README.md  info  temp.txt
 ```
 
 `rm`（**R**e**m**ove）で削除します。
@@ -513,19 +513,19 @@ ls
 ```
 
 ```
-README.md  notes
+README.md  info
 ```
 
 ディレクトリを削除するには `-r` オプションが必要です。
 
 ```bash
-mkdir old-notes
-rm -r old-notes
+mkdir old-info
+rm -r old-info
 ls
 ```
 
 ```
-README.md  notes
+README.md  info
 ```
 
 > **警告**: `rm` で削除したファイルは **ゴミ箱に入らず、即座に完全削除** されます。
@@ -550,7 +550,7 @@ rm: remove regular file 'README.md'?
 ### Step 5：完成したフォルダ構造を確認する
 
 ```bash
-ls -la ~/works/client-research
+ls -la ~/works/hakuhodo
 ```
 
 ```
@@ -558,15 +558,15 @@ total 8
 drwxr-xr-x 3 eiji eiji  512 Mar  8 10:00 .
 drwxr-xr-x 3 eiji eiji  512 Mar  8 10:00 ..
 -rw-r--r-- 1 eiji eiji   38 Mar  8 10:00 README.md
-drwxr-xr-x 2 eiji eiji  512 Mar  8 10:00 notes
+drwxr-xr-x 2 eiji eiji  512 Mar  8 10:00 info
 ```
 
 プロジェクトの土台ができました。
 
 ```
-~/works/client-research/
+~/works/hakuhodo/
 ├── README.md    ← プロジェクトの説明
-└── notes/       ← 調査メモを置く場所
+└── info/        ← 調査メモを置く場所
 ```
 
 ---
@@ -580,8 +580,8 @@ drwxr-xr-x 2 eiji eiji  512 Mar  8 10:00 notes
 コマンドやファイル名の途中まで入力して `Tab` キーを押すと、自動で補完されます。
 
 ```
-cd st[Tab]
-→ cd client-research/
+cd ha[Tab]
+→ cd hakuhodo/
 ```
 
 候補が複数ある場合は、もう一度 `Tab` を押すと候補一覧が表示されます。
@@ -632,21 +632,21 @@ man ls
 | コマンド | 書き方の例 | 意味 |
 |---|---|---|
 | `pwd` | `pwd` | カレントディレクトリを表示する |
-| `cd` | `cd client-research` | ディレクトリを移動する |
+| `cd` | `cd hakuhodo` | ディレクトリを移動する |
 | `cd ~` | `cd ~` | ホームディレクトリへ移動 |
 | `cd ..` | `cd ..` | 一つ上のディレクトリへ移動 |
 | `cd -` | `cd -` | 直前のディレクトリへ移動 |
 | `ls` | `ls` | ファイル一覧を表示する |
 | `ls -l` | `ls -l` | 詳細情報付きで表示する |
 | `ls -la` | `ls -la` | 隠しファイルも含めて詳細表示 |
-| `mkdir` | `mkdir notes` | ディレクトリを作成する |
+| `mkdir` | `mkdir info` | ディレクトリを作成する |
 | `touch` | `touch README.md` | 空のファイルを作成する |
 | `cat` | `cat README.md` | ファイルの内容を表示する |
 | `echo` | `echo "text"` | 文字列を出力する |
 | `echo >` | `echo "text" > README.md` | ファイルに上書き書き込み |
 | `echo >>` | `echo "text" >> README.md` | ファイルに追記 |
 | `rm` | `rm temp.txt` | ファイルを削除する（元に戻せない） |
-| `rm -r` | `rm -r old-notes` | ディレクトリを削除する |
+| `rm -r` | `rm -r old-info` | ディレクトリを削除する |
 | `rm -i` | `rm -i README.md` | 削除前に確認を求める |
 
 ### キーボードショートカット早見表
@@ -665,7 +665,7 @@ man ls
 
 ### 次のステップ
 
-プロジェクトフォルダ `~/works/client-research/` が完成しました。
-次は Claude Code を使って、このフォルダの中でリサーチを進める方法を学びます。
+プロジェクトフォルダ `~/works/hakuhodo/` が完成しました。
+次は Claude Code を使って、このフォルダの中で情報整理を進める方法を学びます。
 
-[02_claude_usage.md](./02_claude_usage.md) — Claude Code の使い方
+次の章: [02_claude_usage.md](./02_claude_usage.md) — Claude Code の使い方
