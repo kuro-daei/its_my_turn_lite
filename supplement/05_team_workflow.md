@@ -1,4 +1,7 @@
-# 11. 複数人協働シナリオ演習
+# 補足 05. チーム開発ワークフロー（複数人協働演習）
+
+> **位置づけ:** この補足資料は本編の発展内容です。[08_branch_strategy.md](../08_branch_strategy.md) と [09_pull_request.md](../09_pull_request.md) を学んでから読むことを推奨します。
+
 
 このドキュメントでは、1つのリポジトリを複数人で共有する方法を学びます。
 Collaborator の追加から、2人が同時に作業するシナリオ、コンフリクトの解決、そして `git pull` と `git fetch` の使い分けまでを順番に解説します。
@@ -616,4 +619,6 @@ git fetch --prune
 
 ---
 
-[90_command_reference.md](./90_command_reference.md) — コマンドリファレンス早見表
+[supplement/06_command_reference.md](./supplement/06_command_reference.md) — コマンドリファレンス早見表
+
+[補足資料一覧に戻る](../91_supplement_index.md)

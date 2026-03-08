@@ -252,8 +252,7 @@ echo "Hello, World!"
 
 ````markdown
 ```bash
-# ブランチを作成してチェックアウト
-git checkout -b feature/add-notes
+# ブランチを作成して切り替え\ngit switch -c feature/add-notes
 
 # ステージングしてコミット
 git add my_notes.md
@@ -267,8 +266,8 @@ git push -u origin feature/add-notes
 **表示結果:**
 
 ```bash
-# ブランチを作成してチェックアウト
-git checkout -b feature/add-notes
+# ブランチを作成して切り替え
+git switch -c feature/add-notes
 
 # ステージングしてコミット
 git add my_notes.md
@@ -307,13 +306,13 @@ git push -u origin feature/add-notes
 [表示テキスト](URL)
 
 [GitHub](https://github.com)
-[前の章に戻る](./05_command_reference.md)
+[コマンド早見表を見る](./supplement/06_command_reference.md)
 ```
 
 **表示結果:**
 
 - `[GitHub](https://github.com)` → [GitHub](https://github.com)
-- `[前の章に戻る](./05_command_reference.md)` → ファイル内のリンクとして機能
+- `[コマンド早見表を見る](./supplement/06_command_reference.md)` → 同じリポジトリ内のファイルへのリンクとして機能
 
 ---
 
@@ -519,7 +518,7 @@ git push -u origin feature/add-notes
 ```bash
 # main ブランチを最新にしてから作業ブランチを作る
 git pull
-git checkout -b feature/add-markdown-notes
+git switch -c feature/add-markdown-notes
 ```
 
 ### ステップ 2: Markdown ファイルを作成する
@@ -634,9 +633,9 @@ GitHub では標準 Markdown を拡張した **GFM（GitHub Flavored Markdown）
 | テーブル | パイプ `\|` 記法 |
 | 取り消し線 | `~~テキスト~~` |
 | コードブロックのシンタックスハイライト | 言語名指定 |
-| 絵文字 | `:thumbsup:` → :thumbsup: |
-| @メンション | `@ユーザー名` でユーザーに通知 |
-| Issue 参照 | `#123` で Issue やPR にリンク |
+| 絵文字 | `:thumbsup:` → 👍（GitHub 上でレンダリング） |
+| @メンション | `@ユーザー名` → クリック可能なリンクになる（Issue/PR コメント内では通知も届く） |
+| Issue 参照 | `#123` で同リポジトリの Issue や PR へのリンクになる |
 
 ---
 
