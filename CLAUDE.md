@@ -6,6 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Claude と GitHub の使い方を学ぶための初歩的なカリキュラムリポジトリです。
 
+ハンズオン形式で各章を連続実施します。座学ではないので注意が必要です。
+
+Claude Code 内の処理と Teminal での処理が混同されるので、基本的には Claude Code の Tab と Terminal 操作の Tab を分けて操作させます。
+
 以下の段階的な学習コンテンツを提供します（OS 別準備から始め、番号順に進める）：
 
 | ドキュメント | 内容 |
@@ -70,6 +74,14 @@ ssh -T git@github.com      # 接続テスト
 ## リモートリポジトリ
 
 `git@github.com:kuro-daei/its_my_turn_lite.git`
+
+## コンテンツ執筆スタイル
+
+- 操作手順はすべて Claude への指示形式（`>` プロンプト）で記述する
+- コマンドラインが必須の操作には `> **⚠️ コマンドライン操作:**` 注意書きを付ける
+- 調査メモのファイルは `notes/` フォルダに格納、名前はハイフン区切り（例: `notes/financial-research.md`）
+- シナリオの作業ディレクトリは `~/works/client-research`、リポジトリ名は `client-research`
+- `git checkout` は使わず `git switch` で統一する
 
 ## 編集作業
 

@@ -1,42 +1,79 @@
-# TASKS.md — ストーリー化作業の進捗
+# TASKS.md — カリキュラム改訂作業の進捗
 
-全体のストーリー：「client-research プロジェクトを Claude で進める」という一連の流れで
-01〜09 を繋げる。03 以降は Claude の中の作業をイメージ、コマンドラインは最小限。
+全体設計は [curriculum.md](./curriculum.md) を参照。
 
 ---
 
-## 完了済み
+## 方針
+
+- **フェーズ1（博報堂）**: 01〜05章。ソロ作業。`hakuhodo` リポジトリを題材に。
+- **フェーズ2（Apple）**: 06〜12章。チーム作業。`apple` リポジトリを題材に。
+- 既存の `client-research` シナリオ・`notes/` フォルダ参照はすべて置き換える。
+
+---
+
+## フェーズ1 — 既存章の修正
+
+### ✅ 完了
 
 | ファイル | 主な変更内容 |
 |---|---|
-| `00_preparation_windows.md` | Brave Search API キー取得セクションを追加（セクション 9） |
-| `00_preparation_mac.md` | Brave Search API キー取得セクションを追加（セクション 10） |
-| `01_bash_basics.md` | `client-research` フォルダ作成を題材にしたストーリーに全面改訂。コマンドを上から順に実行すると動く流れに |
-| `02_claude_usage.md` | 起動を `~/works/client-research` から開始。フォルダ信頼確認の画面を追加。実例を Git 系から削除しリサーチ系に変更。ワンショットモードを supplement へ移動 |
-| `03_agent_workflow.md` | bash フェーズ（MCP 設定・Superpowers インストール）→ Claude 起動 → researcher/writer/reviewer の会話ログ、に全面改訂 |
-| `04_research_with_claude.md` | bash コマンドを削除し Claude 内の作業に統一。冒頭に 03 の続きである旨を追記 |
-| `05_github_publish.md` | 旧 05・06 を統合。Git の基本概念 + Claude 会話形式で GitHub 公開の流れを構成 |
-| `06_git_internals.md` | 旧 06 をコンパクトな概念ページに再構成。詳細は supplement/git/01_deep_dive.md へ |
-| `supplement/` | claude/ と git/ のサブディレクトリに再編。全 7 ファイルのリンクを更新 |
+| `00_preparation_windows.md` | Brave Search API キー取得セクションを追加 |
+| `00_preparation_mac.md` | Brave Search API キー取得セクションを追加 |
+| `02_claude_usage.md` | 起動を `~/works/hakuhodo` から開始に変更 |
+| `03_agent_workflow.md` | bash フェーズ → Claude 起動 → researcher/writer/reviewer 会話ログ |
+| `04_research_with_claude.md` | Claude 内の作業に統一。03章の続きであることを明記 |
 
----
-
-## 未着手（これから修正する章）
+### 🔲 未着手
 
 | ファイル | 修正方針 |
 |---|---|
-| `05_github_publish.md` | 再修正予定 |
-| `06_git_internals.md` | 再修正予定 |
-| `07_markdown.md` | Claude 前提に。コマンドライン操作を最小化。実例は client-research のメモ作成に合わせる |
-| `08_branch_strategy.md` | Claude 前提に。ブランチ操作は Claude に指示する形式で |
-| `09_pull_request.md` | Claude 前提に。PR 作成・レビュー対応を Claude 会話形式で |
+| `01_bash_basics.md` | 題材を `hakuhodo/` フォルダ作成に変更。`client-research/notes/` 参照を削除。作業ディレクトリは `~/works/hakuhodo` |
+| `04_research_with_claude.md` | 保存先を `hakuhodo/info/overview.md` `hakuhodo/info/contacts.md` に変更 |
+| `05_git_internals.md` | 旧06章を改訂。hakuhodo リポジトリのコミット履歴を例に使う。章番号を05に変更 |
 
 ---
 
-## 方針メモ
+## フェーズ2 — 新規作成・既存章の移植
 
-- **ストーリー軸**: 04 の「Claude でリサーチ」を全体の目的とし、各章がその準備・実行・公開の流れになるよう構成
-- **フォルダ名**: `client-research`（`stock-research` から変更済み）
-- **03 以降**: bash フェーズがある場合は冒頭に集約し、その後 `claude` 起動 → Claude 内作業の順
-- **ファイル作成の実例は避ける**: Claude への質問・調査依頼を中心にした実例にする
-- **Git 系の実例は本編から除外**: supplement/claude/03_git_flow.md または supplement/git/ に移す
+### 🔲 新規作成
+
+| ファイル | 内容 |
+|---|---|
+| `06_team_invite.md` | Collaborator 招待・クローン・権限管理。apple リポジトリをチームで共有する |
+| `07_research_team.md` | 旧04章を Apple × チーム版に改訂。役割分担してリサーチ・まとめ |
+| `12_conflict.md` | 意図的コンフリクト発生・解決。同一ファイルをチームで編集し解消 |
+
+### 🔲 既存章の移植（旧番号 → 新番号）
+
+| 旧ファイル | 新ファイル | 修正方針 |
+|---|---|---|
+| `05_github_publish.md` | `08_github_publish.md` | Apple シナリオに変更。チームで push・PR を体験 |
+| `07_markdown.md` | `09_markdown.md` | 題材を `apple/meetings/2025-01-meeting.md` に変更 |
+| `08_branch_strategy.md` | `10_branch_strategy.md` | Apple シナリオ・チーム前提に。各自がブランチで `apple/info/` を分担編集 |
+| `09_pull_request.md` | `11_pull_request.md` | Apple シナリオ・チームでレビューし合う形に |
+
+---
+
+## ファイルリネーム作業
+
+既存章のファイル名を変更する（内容修正の前に実施）。
+
+| 現在のファイル名 | 変更後 |
+|---|---|
+| `05_github_publish.md` | `08_github_publish.md` |
+| `06_git_internals.md` | `05_git_internals.md` |
+| `07_markdown.md` | `09_markdown.md` |
+| `08_branch_strategy.md` | `10_branch_strategy.md` |
+| `09_pull_request.md` | `11_pull_request.md` |
+
+---
+
+## 共通の執筆ルール（CLAUDE.md より）
+
+- 操作手順はすべて Claude への指示形式（`>` プロンプト）で記述する
+- コマンドラインが必須の操作のみ `> **⚠️ コマンドライン操作:**` 注意書きを付ける
+- `git checkout` は使わず `git switch` で統一する
+- フェーズ1のシナリオ: 作業ディレクトリ `~/works/hakuhodo`、リポジトリ名 `hakuhodo`
+- フェーズ2のシナリオ: 作業ディレクトリ `~/works/apple`、リポジトリ名 `apple`
+- メモファイルはハイフン区切り（例: `info/overview.md`、`meetings/2025-01-meeting.md`）
