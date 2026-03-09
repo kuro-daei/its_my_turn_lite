@@ -85,6 +85,15 @@ git switch -c feature/add-overview を実行
 > main を最新にして、feature/add-contacts というブランチを作って
 ```
 
+```
+【Step 1 完了後の状態】
+Aさんのローカル                          Bさんのローカル
+  main: ●                                main: ●
+  └── feature/add-overview ← HEAD        └── feature/add-contacts ← HEAD
+
+GitHub (main): ●  ← まだ変更なし
+```
+
 ### Step 2：担当ファイルをコミットする
 
 **Aさんの場合:**
@@ -108,6 +117,17 @@ git commit -m "feat: Apple の企業概要を追加" を実行します。
 
 ```
 > info/contacts.md をコミットして。メッセージは「feat: 担当者情報テンプレートを追加」で
+```
+
+```
+【Step 2 完了後の状態】
+Aさんのローカル                            Bさんのローカル
+  main: ●                                  main: ●
+  feature/add-overview: ●─●               feature/add-contacts: ●─●
+                          ↑                                        ↑
+                   overview.md 追加                         contacts.md 追加
+
+GitHub (main): ●  ← まだ push されていない
 ```
 
 ### Step 3：push して PR を作る
@@ -140,6 +160,14 @@ PR を作成します：
 
 ```
 > push して PR を作って
+```
+
+```
+【Step 3 完了後の状態】
+GitHub
+  main: ●
+  feature/add-overview: ●─●  ← push 済み  🔀 PR #1（Aさん: overview.md 追加）
+  feature/add-contacts: ●─●  ← push 済み  🔀 PR #2（Bさん: contacts.md 追加）
 ```
 
 ### Step 4：お互いの PR を確認する
@@ -188,6 +216,15 @@ PR が作成されたら、チームメンバーが内容を確認します。
 ✓ ローカル main を最新にしました
 ```
 
+```
+【Step 5 完了後の状態】
+GitHub (main)                                全員のローカル (main) ← pull で同期済み
+  ●──────────────────────────●                ●──────────────────────────●
+                              ↑                info/overview.md ★
+                    PR #1 マージ済み           info/contacts.md ★
+  feature/add-overview: 削除済み
+```
+
 GitHub のリポジトリページを開いて、`info/overview.md` が main に追加されているか確認してみましょう。
 
 ---
@@ -209,4 +246,4 @@ GitHub のリポジトリページを開いて、`info/overview.md` が main に
 
 ---
 
-次の章: [09_markdown.md](./09_markdown.md) — Markdown 記法
+← [前の章: チームでリサーチ](./07_research_team.md) ｜ [次の章: Markdown 記法 →](./09_markdown.md)

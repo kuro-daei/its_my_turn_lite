@@ -242,30 +242,32 @@ echo "Hello, World!"
 
 ````markdown
 ```bash
-# ブランチを作成して切り替え
-git switch -c feature/add-meeting-memo
+# 作業ディレクトリを確認して移動
+TARGET_DIR=~/works/apple
 
-# ステージングしてコミット
-git add meetings/2025-01-meeting.md
-git commit -m "feat: 1月打ち合わせメモを追加"
-
-# リモートにプッシュ
-git push -u origin feature/add-meeting-memo
+if [ -d "$TARGET_DIR" ]; then
+    echo "ディレクトリが見つかりました: $TARGET_DIR"
+    cd "$TARGET_DIR"
+else
+    echo "エラー: $TARGET_DIR が存在しません"
+    exit 1
+fi
 ```
 ````
 
 **表示結果:**
 
 ```bash
-# ブランチを作成して切り替え
-git switch -c feature/add-meeting-memo
+# 作業ディレクトリを確認して移動
+TARGET_DIR=~/works/apple
 
-# ステージングしてコミット
-git add meetings/2025-01-meeting.md
-git commit -m "feat: 1月打ち合わせメモを追加"
-
-# リモートにプッシュ
-git push -u origin feature/add-meeting-memo
+if [ -d "$TARGET_DIR" ]; then
+    echo "ディレクトリが見つかりました: $TARGET_DIR"
+    cd "$TARGET_DIR"
+else
+    echo "エラー: $TARGET_DIR が存在しません"
+    exit 1
+fi
 ```
 
 ---
@@ -517,4 +519,4 @@ git push -u origin feature/add-meeting-memo
 
 ---
 
-次の章: [10_branch_strategy.md](./10_branch_strategy.md) — ブランチ戦略
+← [前の章: GitHub に公開（チーム）](./08_github_publish.md) ｜ [次の章: ブランチ戦略 →](./10_branch_strategy.md)

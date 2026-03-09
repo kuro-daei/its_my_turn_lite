@@ -343,9 +343,9 @@ git merge feature/greeting
 
 ```bash
 # 作業開始前の習慣
-git checkout main
+git switch main
 git pull
-git checkout feature/自分の作業
+git switch feature/自分の作業
 git merge main    # または git rebase main
 ```
 
@@ -410,7 +410,7 @@ git merge main    # または git rebase main
   「急いで別のバグを直してほしい」と頼まれた
         │
         ▼
-  git checkout main をしようとすると...
+  git switch main をしようとすると...
   「変更がコミットされていないので切り替えられない」
   または「変更が次のブランチに持ち越されてしまう」
         │
@@ -492,16 +492,16 @@ git stash apply
 git stash push -m "新機能の実装途中"
 
 # 3. 別ブランチに切り替えてバグ修正
-git checkout main
-git checkout -b fix/urgent-bug
+git switch main
+git switch -c fix/urgent-bug
 # ... バグ修正 ...
 git add bugfix.txt
 git commit -m "fix: 緊急バグを修正"
-git checkout main
+git switch main
 git merge fix/urgent-bug
 
 # 4. 元の作業ブランチに戻る
-git checkout feature/new-feature
+git switch feature/new-feature
 
 # 5. 退避していた作業を復元
 git stash pop

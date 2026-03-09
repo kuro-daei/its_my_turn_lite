@@ -84,6 +84,41 @@ MCP の設定は `.claude/settings.json`（プロジェクト固有）または
 
 ---
 
+## Brave Search MCP のセットアップ（Web 検索を強化したい場合）
+
+Claude は標準でも Web 検索を利用できますが、**Brave Search MCP** を追加すると検索エンジンを明示的に指定して呼び出せます。
+
+### API キーの取得
+
+1. ブラウザで [api-dashboard.search.brave.com/register](https://api-dashboard.search.brave.com/register) を開く
+2. メールアドレスとパスワードでアカウント作成
+3. **クレジットカードを登録**（詐欺防止のため無料利用でも必須。無料枠内は課金されない）
+4. ダッシュボードの **Search プラン** を選択し **Subscription Token** を控える
+
+| 無料枠 | 内容 |
+|---|---|
+| 無料クレジット | 毎月 $5 分が自動付与 |
+| クエリ数の目安 | 約 1,000 クエリ/月 |
+
+### MCP への追加
+
+```bash
+claude mcp add --transport stdio brave-search \
+  --env BRAVE_API_KEY=YOUR_TOKEN \
+  -- npx -y @modelcontextprotocol/server-brave-search
+```
+
+`YOUR_TOKEN` を取得した Subscription Token に置き換えてください。
+
+```bash
+claude mcp list
+# brave-search  stdio  npx -y @modelcontextprotocol/server-brave-search
+```
+
+> **API キーの管理:** トークンはパスワードと同じ扱いで。コードや設定ファイルに直書きせず、環境変数で渡してください。
+
+---
+
 ## MCP ツールを使った会話例
 
 WebSearch が有効な場合：

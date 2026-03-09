@@ -103,6 +103,13 @@ info/overview.md を作成します。よいですか？ [y/n]
 
 `y` を押すと保存されます。
 
+```
+【この時点の状態（Aさん）】
+ワーキングツリー              ローカルRepo       GitHub (main)
+  info/overview.md ★                             （まだ空）
+  （保存済み・未コミット）
+```
+
 ### Bさんの作業：担当者情報（contacts.md）
 
 `~/works/apple` で Claude を起動した状態で、次のように依頼します。
@@ -127,9 +134,19 @@ info/overview.md を作成します。よいですか？ [y/n]
 > この内容を info/contacts.md として保存して
 ```
 
+```
+【この時点の状態（Bさん）】
+ワーキングツリー              ローカルRepo       GitHub (main)
+  info/contacts.md ★                             （まだ空）
+  （保存済み・未コミット）
+```
+
 ---
 
 ## 4. 互いの成果を確認する
+
+> **注意:** この章では main ブランチに直接 push します。
+> 08章以降でブランチを使った安全な方法を学びます。Branch Protection Rules（10章）を設定すると直接 push はできなくなります。
 
 各自がファイルを保存したら、チームメンバーの変更を取得して確認し合います。
 
@@ -147,6 +164,18 @@ info/overview.md を作成します。よいですか？ [y/n]
   メッセージは「feat: 担当者情報テンプレートを追加」で（Bさんの場合）
 ```
 
+```
+【全員が push 後の状態】
+
+Aさんのローカル (main)    Bさんのローカル (main)
+  overview.md               contacts.md
+       │ push                    │ push
+       ▼                         ▼
+            GitHub (main)
+              overview.md  ← Aさんが push
+              contacts.md  ← Bさんが push
+```
+
 push が完了したら、お互いの変更を pull します。
 
 ```
@@ -157,6 +186,14 @@ push が完了したら、お互いの変更を pull します。
 ✓ リモートから変更を取得しました
   info/overview.md  （Aさんが追加）
   info/contacts.md  （Bさんが追加）
+```
+
+```
+【全員が pull 後の状態】
+Aさんのローカル (main)     GitHub (main)      Bさんのローカル (main)
+  overview.md              overview.md          overview.md ★（新規取得）
+  contacts.md ★（新規取得） contacts.md          contacts.md
+  ◀── pull ────────────────────────────────── pull ──▶
 ```
 
 ### 相手のファイルを確認する
@@ -201,4 +238,4 @@ apple/
 
 ---
 
-次の章: [08_github_publish.md](./08_github_publish.md) — GitHub に公開（チーム）
+← [前の章: GitHub チーム招待](./06_team_invite.md) ｜ [次の章: GitHub に公開（チーム）→](./08_github_publish.md)

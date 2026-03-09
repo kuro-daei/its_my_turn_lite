@@ -130,10 +130,10 @@
 | `git branch -d <name>` | ブランチを削除する（マージ済みのみ） | `git branch -d feature/login` |
 | `git branch -D <name>` | ブランチを強制削除する（未マージでも削除） | `git branch -D feature/wip` |
 | `git branch -m <old> <new>` | ブランチ名を変更する | `git branch -m feature/old feature/new` |
-| `git checkout <branch>` | 指定したブランチに切り替える | `git checkout main` |
-| `git checkout -b <name>` | ブランチを作成して切り替える | `git checkout -b feature/login` |
-| `git switch <branch>` | 指定したブランチに切り替える（新しい記法） | `git switch main` |
-| `git switch -c <name>` | ブランチを作成して切り替える（新しい記法） | `git switch -c feature/login` |
+| `git switch <branch>` | 指定したブランチに切り替える | `git switch main` |
+| `git switch -c <name>` | ブランチを作成して切り替える | `git switch -c feature/login` |
+| `git switch --detach <hash>` | 特定のコミットに切り替える（detached HEAD） | `git switch --detach a1b2c3d` |
+| `git checkout <branch>` | 旧記法（非推奨） | `git checkout main` |
 
 ---
 
