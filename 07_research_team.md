@@ -50,13 +50,13 @@
 | 担当者 | 作成するファイル | 内容 |
 |---|---|---|
 | Aさん（例: オーナー） | `apple/info/overview.md` | Apple 社の企業概要 |
-| Bさん（例: メンバー） | `apple/info/contacts.md` | 担当者情報テンプレート |
+| Bさん（例: メンバー） | `apple/info/products.md` | 主要製品・サービス一覧 |
 
 3人チームの場合は、さらに追加分担できます。
 
 | 担当者 | 作成するファイル | 内容 |
 |---|---|---|
-| Cさん | `apple/info/products.md` | 主要製品・サービス一覧 |
+| Cさん | `apple/info/contacts.md` | 担当者情報テンプレート |
 
 ---
 
@@ -110,34 +110,37 @@ info/overview.md を作成します。よいですか？ [y/n]
   （保存済み・未コミット）
 ```
 
-### Bさんの作業：担当者情報（contacts.md）
+### Bさんの作業：製品情報（products.md）
 
 `~/works/apple` で Claude を起動した状態で、次のように依頼します。
 
 ```
-> Apple 社との取引における担当者情報を管理するための Markdown テンプレートを作って。
-  以下の情報を含む表形式で。
+> Apple 社の主要製品・サービスをまとめて、以下の形式で整理してほしい。
 
-  - 部署名（例: 法人営業、マーケティング）
-  - 担当者名
-  - 役職
-  - メールアドレス
-  - 電話番号
-  - 備考
+  ## Apple 主要製品・サービス一覧
 
-  3〜4行のサンプルデータを入れてほしい
+  **調査日**: 2026-03-09
+
+  ### ハードウェア製品
+  （製品名・概要・最新モデルを表形式で）
+
+  ### ソフトウェア・サービス
+  （主要サービス名・概要を箇条書きで）
+
+  ### 売上構成（最新）
+  （製品カテゴリ別の売上割合）
 ```
 
-テンプレートが作成されたら保存します。
+調査結果が出たら保存します。
 
 ```
-> この内容を info/contacts.md として保存して
+> この内容を info/products.md として保存して
 ```
 
 ```
 【この時点の状態（Bさん）】
 ワーキングツリー              ローカルRepo       GitHub (main)
-  info/contacts.md ★                             （まだ空）
+  info/products.md ★                             （まだ空）
   （保存済み・未コミット）
 ```
 
@@ -161,19 +164,19 @@ info/overview.md を作成します。よいですか？ [y/n]
 
 ```
 > info/ の変更をコミットして、push して。
-  メッセージは「feat: 担当者情報テンプレートを追加」で（Bさんの場合）
+  メッセージは「feat: 製品情報を追加」で（Bさんの場合）
 ```
 
 ```
 【全員が push 後の状態】
 
 Aさんのローカル (main)    Bさんのローカル (main)
-  overview.md               contacts.md
+  overview.md               products.md
        │ push                    │ push
        ▼                         ▼
             GitHub (main)
               overview.md  ← Aさんが push
-              contacts.md  ← Bさんが push
+              products.md  ← Bさんが push
 ```
 
 push が完了したら、お互いの変更を pull します。
@@ -185,14 +188,14 @@ push が完了したら、お互いの変更を pull します。
 ```
 ✓ リモートから変更を取得しました
   info/overview.md  （Aさんが追加）
-  info/contacts.md  （Bさんが追加）
+  info/products.md  （Bさんが追加）
 ```
 
 ```
 【全員が pull 後の状態】
 Aさんのローカル (main)     GitHub (main)      Bさんのローカル (main)
   overview.md              overview.md          overview.md ★（新規取得）
-  contacts.md ★（新規取得） contacts.md          contacts.md
+  products.md ★（新規取得） products.md          products.md
   ◀── pull ────────────────────────────────── pull ──▶
 ```
 
@@ -203,7 +206,7 @@ Aさんのローカル (main)     GitHub (main)      Bさんのローカル (mai
 ```
 
 ```
-> info/contacts.md の内容を見せて
+> info/products.md の内容を見せて
 ```
 
 内容に気になる点があれば、その場で Claude に修正を依頼できます。
@@ -222,7 +225,7 @@ Aさんのローカル (main)     GitHub (main)      Bさんのローカル (mai
 apple/
 └── info/
     ├── overview.md    ← Aさんが作成（Apple 企業概要）
-    └── contacts.md    ← Bさんが作成（担当者情報テンプレート）
+    └── products.md    ← Bさんが作成（主要製品・サービス一覧）
 ```
 
 | ステップ | Claude への指示例 |
@@ -231,7 +234,7 @@ apple/
 | ファイル保存 | `> info/overview.md として保存して` |
 | コミット・push | `> info/ の変更をコミットして push して` |
 | 最新取得 | `> 最新の変更を pull して` |
-| 内容確認 | `> info/overview.md の内容を見せて` |
+| 内容確認 | `> info/products.md の内容を見せて` |
 
 チームで分担することで、短時間で多くの情報を整理できます。
 次章では、この成果物を GitHub に公開する方法を学びます。
