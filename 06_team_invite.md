@@ -59,13 +59,13 @@ claude
 ### Step 1：GitHub にリポジトリを作る
 
 ```
-> apple というリポジトリを GitHub に作って。公開設定で
+> apple というリポジトリを GitHub に作って。非公開で
 ```
 
 Claude が次のように確認してきます。
 
 ```
-gh repo create apple --public を実行します。よいですか？ [y/n]
+gh repo create apple --private を実行します。よいですか？ [y/n]
 ```
 
 `y` を押すと作成されます。
@@ -94,6 +94,25 @@ gh repo create apple --public を実行します。よいですか？ [y/n]
 ```
 
 `y` を押すと完了します。
+
+### Step 2.5：CLAUDE.md を作成する
+
+このプロジェクトではブランチと PR を使うので、その旨を CLAUDE.md に書いておきます。
+
+```
+> CLAUDE.md を作って。内容は以下の通り：
+
+## プロジェクト概要
+
+Apple 社との取引情報・調査メモをチームで管理するリポジトリです。
+
+## Git ルール
+
+- 作業は必ず feature/ ブランチを切って行う
+- main への直接コミット・push は禁止
+- 変更は Pull Request 経由でマージする
+- コミットメッセージは Conventional Commits 形式（feat: / fix: / docs:）
+```
 
 ### Step 3：Collaborator を招待する
 
@@ -159,4 +178,4 @@ apple/
 
 ---
 
-次の章: [07_research_team.md](./07_research_team.md) — チームでリサーチ
+← [前の章: Git の基本概念](./05_git_internals.md) ｜ [次の章: チームでリサーチ →](./07_research_team.md)

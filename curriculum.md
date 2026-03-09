@@ -119,6 +119,6 @@ Pull Request（11）── チームでレビューし合う
 | `supplement/git/02_conflict.md` | マージとコンフリクト解決（詳細） |
 | `supplement/git/03_team_workflow.md` | チーム開発ワークフロー（詳細） |
 | `supplement/git/04_command_reference.md` | コマンドリファレンス早見表 |
-| `supplement/claude/01_prompt_tips.md` | Claude への効果的な指示の出し方 |
-| `supplement/claude/02_mcp_advanced.md` | MCP の詳細設定 |
+| `supplement/claude/01_mcp.md` | MCP と外部ツール連携（Brave Search 含む） |
+| `supplement/claude/02_cli.md` | Claude Code CLI 詳細オプション |
 | `supplement/claude/03_git_flow.md` | Claude に Git 操作を任せる詳細フロー |

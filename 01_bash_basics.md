@@ -668,4 +668,4 @@ man ls
 プロジェクトフォルダ `~/works/hakuhodo/` が完成しました。
 次は Claude Code を使って、このフォルダの中で情報整理を進める方法を学びます。
 
-次の章: [02_claude_usage.md](./02_claude_usage.md) — Claude Code の使い方
+← 前の章: [環境準備 Windows](./00_preparation_windows.md) / [Mac](./00_preparation_mac.md) ｜ [次の章: Claude Code の使い方 →](./02_claude_usage.md)

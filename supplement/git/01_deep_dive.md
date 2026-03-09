@@ -140,10 +140,10 @@ git cat-file -p a1b2c3d
 
 ### detached HEAD 状態
 
-`git checkout <コミットハッシュ>` でブランチではなくコミットを直接指定すると、HEAD がブランチ名ではなくコミットハッシュを直接指す状態になります。これを **detached HEAD** と呼びます。
+`git switch --detach <コミットハッシュ>` でブランチではなくコミットを直接指定すると、HEAD がブランチ名ではなくコミットハッシュを直接指す状態になります。これを **detached HEAD** と呼びます。
 
 ```bash
-git checkout a1b2c3d4e5f6
+git switch --detach a1b2c3d4e5f6
 ```
 
 ```

@@ -260,4 +260,6 @@ push して PR をマージ
 - [supplement/git/02_conflict.md](./supplement/git/02_conflict.md) — マージとコンフリクト解決（詳細）
 - [supplement/git/03_team_workflow.md](./supplement/git/03_team_workflow.md) — チーム開発ワークフロー詳細
 
-→ [補足資料一覧](./10_supplement_index.md)
+---
+
+← [前の章: Pull Request](./11_pull_request.md) ｜ [補足資料一覧 →](./10_supplement_index.md)

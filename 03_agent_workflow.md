@@ -20,8 +20,7 @@ researcher → writer → reviewer というエージェントワークフロー
 
 ```
 [bash フェーズ]
-  1. Web 検索 MCP を追加する（claude mcp add）
-  2. Superpowers プラグインをインストールする（/plugin）
+  1. Superpowers プラグインをインストールする（/plugin）
 
 [Claude フェーズ]
   3. researcher → writer → reviewer でリサーチを自動化する
@@ -37,49 +36,21 @@ researcher → writer → reviewer というエージェントワークフロー
 cd ~/works/hakuhodo
 ```
 
-### 2-2. Web 検索 MCP を追加する
+### 2-2. Superpowers プラグインをインストールする
 
-Claude が Web 検索できるようにするため、Brave Search MCP を追加します。
-
-```bash
-claude mcp add --transport stdio brave-search \
-  --env BRAVE_API_KEY=YOUR_KEY \
-  -- npx -y @modelcontextprotocol/server-brave-search
-```
-
-`YOUR_KEY` は 00 章で取得した Brave Search の **Subscription Token** に置き換えてください。
-（取得方法は [00_preparation_windows.md § 9](./00_preparation_windows.md) または [00_preparation_mac.md § 10](./00_preparation_mac.md) を参照）
-
-追加後に確認：
+このカリキュラムで使う3つのプラグインを一括インストールします。
 
 ```bash
-claude mcp list
+claude plugin install -s user superpowers@claude-plugins-official
+claude plugin install -s user commit-commands@claude-plugins-official
+claude plugin install -s user code-review@claude-plugins-official
 ```
 
-```
-brave-search  stdio  npx -y @modelcontextprotocol/server-brave-search
-```
-
-### 2-3. Superpowers プラグインをインストールする
-
-Superpowers は researcher・writer・reviewer などのエージェントをまとめてインストールできるプラグインです。
-
-```bash
-claude --dangerously-skip-permissions \
-  -p "/plugin marketplace add obra/superpowers-marketplace && \
-      /plugin install superpowers@superpowers-marketplace"
-```
-
-> **補足:** `--dangerously-skip-permissions` は非対話的なセットアップコマンドを実行するためのオプションです。
-> 内容が明確なセットアップ操作のみに使用してください。
-
-インストールが完了すると、以下のエージェントが使えるようになります：
-
-| エージェント | 役割 |
-|---|---|
-| researcher | Web 検索・情報収集・要約 |
-| writer | 調査結果をもとに文書を作成 |
-| reviewer | 作成した文書の品質チェック |
+| プラグイン | 主な機能 | 使う章 |
+|---|---|---|
+| superpowers | researcher・writer・reviewer エージェント | 03・04章 |
+| commit-commands | コミット・PR 作成の補助 | 05〜12章 |
+| code-review | PR レビューの補助 | 11章 |
 
 ---
 
@@ -92,8 +63,9 @@ claude
 ```
 ╭──────────────────────────────────────────╮
 │ Claude Code  v1.x.x                      │
-│ ✓ MCP: brave-search                      │
 │ ✓ Plugin: superpowers                    │
+│ ✓ Plugin: commit-commands                │
+│ ✓ Plugin: code-review                    │
 ╰──────────────────────────────────────────╯
 
 >
@@ -212,7 +184,7 @@ info/overview.md を更新します。
 
 | フェーズ | やること |
 |---|---|
-| bash | MCP 追加・プラグインインストール |
+| bash | Superpowers プラグインインストール |
 | Claude 起動 | `claude` で対話モードへ |
 | Claude 内 | researcher → writer → reviewer の流れで作業 |
 
@@ -220,5 +192,4 @@ info/overview.md を更新します。
 
 ---
 
-**次の章へ:**
-[04_research_with_claude.md](./04_research_with_claude.md) — Claude でディープリサーチ
+← [前の章: Claude Code の使い方](./02_claude_usage.md) ｜ [次の章: Claude でリサーチ →](./04_research_with_claude.md)
