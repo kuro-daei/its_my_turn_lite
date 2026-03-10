@@ -1,6 +1,6 @@
 # 補足資料一覧
 
-本編（01〜12）で紹介しきれなかった発展的なトピックをまとめた補足資料です。
+本編（04〜15）で紹介しきれなかった発展的なトピックをまとめた補足資料です。
 本編の学習が一通り終わってから参照することを推奨します。
 
 ---
@@ -30,10 +30,10 @@
 
 ```
 【フェーズ1: ソロ × 博報堂】
-00_preparation → 01_bash_basics → 02_claude_usage → 03_agent_workflow
-→ 04_research_with_claude → 05_git_internals
+02_preparation_mac / 03_preparation_windows → 04_bash_basics → 05_claude_usage → 06_agent_workflow
+→ 07_research_with_claude → 08_git_internals
 
 【フェーズ2: チーム × Apple】
-06_team_invite → 07_research_team → 08_github_publish
-→ 09_markdown → 10_branch_strategy → 11_pull_request → 12_conflict
+09_team_invite → 10_research_team → 11_github_publish
+→ 12_markdown → 13_branch_strategy → 14_pull_request → 15_conflict
 ```
