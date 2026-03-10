@@ -246,4 +246,4 @@ GitHub のリポジトリページを開いて、`info/overview.md` が main に
 
 ---
 
-← [前の章: チームでリサーチ](./07_research_team.md) ｜ [次の章: Markdown 記法 →](./09_markdown.md)
+← [前の章: チームでリサーチ](./10_research_team.md) ｜ [次の章: Markdown 記法 →](./12_markdown.md)

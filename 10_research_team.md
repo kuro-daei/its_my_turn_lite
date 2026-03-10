@@ -241,4 +241,4 @@ apple/
 
 ---
 
-← [前の章: GitHub チーム招待](./06_team_invite.md) ｜ [次の章: GitHub に公開（チーム）→](./08_github_publish.md)
+← [前の章: GitHub チーム招待](./09_team_invite.md) ｜ [次の章: GitHub に公開（チーム）→](./11_github_publish.md)

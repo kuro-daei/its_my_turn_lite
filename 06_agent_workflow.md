@@ -231,4 +231,4 @@ info/overview.md を更新します。
 
 ---
 
-← [前の章: Claude Code の使い方](./02_claude_usage.md) ｜ [次の章: Claude でリサーチ →](./04_research_with_claude.md)
+← [前の章: Claude Code の使い方](./05_claude_usage.md) ｜ [次の章: Claude でリサーチ →](./07_research_with_claude.md)
