@@ -1,7 +1,8 @@
-# 00. 事前準備（Windows 版）— 開発環境のセットアップ
+# 03. 事前準備（Windows 版）— 開発環境のセットアップ
 
 > [!NOTE]
-> **macOS をお使いの方へ:** [00_preparation_mac.md](./00_preparation_mac.md) を参照してください。
+> **macOS をお使いの方へ:** [02_preparation_mac.md](./02_preparation_mac.md) を参照してください。
+> **OS 選択ページに戻る:** [01_preparation.md](./01_preparation.md)
 
 この章では、以降の学習で使うすべてのツールをインストールします。
 手順通りに進めれば、Git・GitHub・Claude Code が使える状態になります。
@@ -733,4 +734,4 @@ claude --version
 
 ---
 
-次の章: [01_bash_basics.md](./01_bash_basics.md) — Bash コマンド入門
+次の章: [04_bash_basics.md](./04_bash_basics.md) — Bash コマンド入門

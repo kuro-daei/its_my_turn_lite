@@ -262,4 +262,4 @@ push して PR をマージ
 
 ---
 
-← [前の章: Pull Request](./11_pull_request.md) ｜ [補足資料一覧 →](./10_supplement_index.md)
+← [前の章: Pull Request](./14_pull_request.md) ｜ [補足資料一覧 →](./supplement_index.md)

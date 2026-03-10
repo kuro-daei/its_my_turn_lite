@@ -519,4 +519,4 @@ fi
 
 ---
 
-← [前の章: GitHub に公開（チーム）](./08_github_publish.md) ｜ [次の章: ブランチ戦略 →](./10_branch_strategy.md)
+← [前の章: GitHub に公開（チーム）](./11_github_publish.md) ｜ [次の章: ブランチ戦略 →](./13_branch_strategy.md)

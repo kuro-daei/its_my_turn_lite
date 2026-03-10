@@ -178,4 +178,4 @@ apple/
 
 ---
 
-← [前の章: Git の基本概念](./05_git_internals.md) ｜ [次の章: チームでリサーチ →](./07_research_team.md)
+← [前の章: Git の基本概念](./08_git_internals.md) ｜ [次の章: チームでリサーチ →](./10_research_team.md)

@@ -120,7 +120,7 @@ GitHub Flow は GitHub 社が提案する、シンプルで学びやすいブラ
 > push して PR を作って
 ```
 
-Pull Request の詳細な操作は [11_pull_request.md](./11_pull_request.md) で解説します。
+Pull Request の詳細な操作は [14_pull_request.md](./14_pull_request.md) で解説します。
 
 #### ステップ 4: マージ
 
@@ -331,4 +331,4 @@ Claude が指定した内容でファイルを更新します。
 
 ---
 
-← [前の章: Markdown 記法](./09_markdown.md) ｜ [次の章: Pull Request →](./11_pull_request.md)
+← [前の章: Markdown 記法](./12_markdown.md) ｜ [次の章: Pull Request →](./14_pull_request.md)
