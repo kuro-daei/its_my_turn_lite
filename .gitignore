@@ -10,3 +10,6 @@ Thumbs.db
 .vscode/settings.json
 *.swp
 *~
+
+# その他
+.claude/worktrees/
