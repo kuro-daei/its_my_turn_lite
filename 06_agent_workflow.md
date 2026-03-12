@@ -2,7 +2,7 @@
 
 Claude Code にはエージェント（役割特化した AI）を複数連携させる仕組みがあります。
 この章では、まず環境をセットアップし（bash フェーズ）、その後 Claude の中で
-researcher → writer → reviewer というエージェントワークフローを体験します。
+researcher → writer → reviewer というワークフローを体験します。
 
 ---
 
@@ -24,11 +24,12 @@ researcher → writer → reviewer というエージェントワークフロー
 ```
 [bash フェーズ]
   1. research カスタムコマンドを作る
-  2. Superpowers プラグインをインストールする（/plugin）
+  2. review カスタムコマンドを作る
+  3. Superpowers プラグインをインストールする（/plugin）
 
 [Claude フェーズ]
-  3. /research コマンドでリサーチを実行する
-  4. writer → reviewer でリサーチを自動化する
+  4. /research コマンドでリサーチを実行する
+  5. writer → /review でリサーチを自動化する
 ```
 
 ---
@@ -71,6 +72,28 @@ Claude がファイルを作成したら `/exit` で一度終了します。
 > たとえば `/research 博報堂の概要` と入力すると、`$ARGUMENTS` の部分が「博報堂の概要」になります。
 > CLAUDE.md と同じように「Markdown ファイルを置くだけ」で機能を追加できるのがポイントです。
 
+### 2-3. review カスタムコマンドを作る
+
+同様に、文書をレビューするカスタムコマンドも作ります。
+
+```bash
+claude
+```
+
+Claude に次のように依頼します。
+
+```
+> ~/.claude/commands/review.md を作って。
+  内容は「$ARGUMENTS のファイルを読み込み、内容の正確性・わかりやすさ・不足点を確認する。
+  指摘はCritical（要確認）・Important（改善推奨）・Minor（軽微）の3段階でまとめる」というレビュー用コマンド
+```
+
+Claude がファイルを作成したら `/exit` で終了します。
+
+```
+/exit
+```
+
 ### 2-4. Superpowers プラグインをインストールする
 
 このカリキュラムで使う3つのプラグインを一括インストールします。
@@ -83,7 +106,7 @@ claude plugin install -s user code-review@claude-plugins-official
 
 | プラグイン | 主な機能 | 使う章 |
 |---|---|---|
-| superpowers | researcher・writer・reviewer エージェント | 03・04章 |
+| superpowers | AI エージェント連携の基盤機能 | 03〜12章 |
 | commit-commands | コミット・PR 作成の補助 | 05〜12章 |
 | code-review | PR レビューの補助 | 11章 |
 
@@ -178,16 +201,16 @@ info/overview.md を作成します。よいですか？ [y/n]
 ...（文書の内容）...
 ```
 
-### 4-3. reviewer に品質チェックを依頼する
+### 4-3. /review で品質チェックをする
 
 作成した文書の内容を確認してもらいます。
 
 ```
-> reviewer エージェントで info/overview.md をレビューして
+> /review info/overview.md
 ```
 
 ```
-[reviewer 起動]
+[/review 実行中]
 info/overview.md を読み込み中...
 
 ## レビュー結果
@@ -204,10 +227,10 @@ info/overview.md を読み込み中...
 
 ### 4-4. フィードバックを反映する
 
-reviewer の指摘をもとに、再度 writer に修正を依頼できます。
+/review の指摘をもとに、再度 writer に修正を依頼できます。
 
 ```
-> reviewer の指摘を反映して、主要グループ会社を追記してほしい
+> /review の指摘を反映して、主要グループ会社を追記してほしい
 ```
 
 ```
@@ -223,11 +246,11 @@ info/overview.md を更新します。
 
 | フェーズ | やること |
 |---|---|
-| bash | Superpowers プラグインインストール |
+| bash | カスタムコマンド作成・プラグインインストール |
 | Claude 起動 | `claude` で対話モードへ |
-| Claude 内 | researcher → writer → reviewer の流れで作業 |
+| Claude 内 | /research → writer → /review の流れで作業 |
 
-エージェントを使うことで、「調査 → 文書化 → レビュー」の流れが Claude との会話だけで完結します。次章ではこのリサーチをさらに深める方法を学びます。
+カスタムコマンドを使うことで、「調査 → 文書化 → レビュー」の流れが Claude との会話だけで完結します。次章ではこのリサーチをさらに深める方法を学びます。
 
 ---
 
