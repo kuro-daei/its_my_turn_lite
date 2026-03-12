@@ -2,7 +2,7 @@
 
 Claude Code にはエージェント（役割特化した AI）を複数連携させる仕組みがあります。
 この章では、まず環境をセットアップし（bash フェーズ）、その後 Claude の中で
-researcher → writer → reviewer というエージェントワークフローを体験します。
+researcher → reviewer というエージェントワークフローを体験します。
 
 ---
 
@@ -23,12 +23,12 @@ researcher → writer → reviewer というエージェントワークフロー
 
 ```
 [bash フェーズ]
-  1. research カスタムコマンドを作る
+  1. research・reviewer カスタムコマンドを作る
   2. Superpowers プラグインをインストールする（/plugin）
 
 [Claude フェーズ]
   3. /research コマンドでリサーチを実行する
-  4. writer → reviewer でリサーチを自動化する
+  4. /reviewer でリサーチを自動化する
 ```
 
 ---
@@ -41,10 +41,10 @@ researcher → writer → reviewer というエージェントワークフロー
 cd ~/works/hakuhodo
 ```
 
-### 2-2. research カスタムコマンドを作る
+### 2-2. カスタムコマンドを作る
 
 Claude Code には**カスタムコマンド**という仕組みがあります。
-`~/.claude/commands/` フォルダに Markdown ファイルを置くと、`/ファイル名` で呼び出せる独自コマンドになります。
+プロジェクト内の `.claude/commands/` フォルダに Markdown ファイルを置くと、`/ファイル名` で呼び出せる独自コマンドになります。
 
 まず Claude を起動して、コマンドを作ってもらいましょう。
 
@@ -59,7 +59,15 @@ Claude に次のように依頼します。
   内容は「$ARGUMENTS についてWebを検索して調査し、概要・主要ポイント・情報源をMarkdown形式でまとめる。完了後に notes/ フォルダへの保存を提案する」というリサーチ用コマンド
 ```
 
+続けて reviewer コマンドも作ります。
+
+```
+> ~/.claude/commands/reviewer.md を作って。
+  内容は「$ARGUMENTS のファイルを読み込み、内容の正確さ・わかりやすさ・構成を確認して、Critical／Important／Minor の3段階でフィードバックをまとめる」というレビュー用コマンド
+```
+
 Claude がファイルを作成したら `/exit` で一度終了します。
+カスタムコマンドは起動時に読み込まれるため、追加後は Claude を再起動する必要があります。
 
 ```
 /exit
@@ -70,20 +78,22 @@ Claude がファイルを作成したら `/exit` で一度終了します。
 > `$ARGUMENTS` はコマンド実行時に渡したテキストに置き換えられます。
 > たとえば `/research 博報堂の概要` と入力すると、`$ARGUMENTS` の部分が「博報堂の概要」になります。
 > CLAUDE.md と同じように「Markdown ファイルを置くだけ」で機能を追加できるのがポイントです。
+>
+> プロジェクト内の `.claude/commands/` に置くとリポジトリに含まれ、チームメンバーと共有できます。
+> `~/.claude/commands/` に置くと自分のすべてのプロジェクトで使えるユーザー共通のコマンドになります。
 
-### 2-4. Superpowers プラグインをインストールする
+### 2-3. Superpowers プラグインをインストールする
 
 このカリキュラムで使う3つのプラグインを一括インストールします。
 
 ```bash
 claude plugin install -s user superpowers@claude-plugins-official
 claude plugin install -s user commit-commands@claude-plugins-official
-claude plugin install -s user code-review@claude-plugins-official
 ```
 
 | プラグイン | 主な機能 | 使う章 |
 |---|---|---|
-| superpowers | researcher・writer・reviewer エージェント | 03・04章 |
+| superpowers | researcher・reviewer エージェント | 03・04章 |
 | commit-commands | コミット・PR 作成の補助 | 05〜12章 |
 | code-review | PR レビューの補助 | 11章 |
 
@@ -117,7 +127,7 @@ MCP と Plugin が `✓` になっていれば準備完了です。
 先ほど作った `/research` コマンドを使ってリサーチします。
 
 ```
-> /research 博報堂の企業概要と主要事業
+> /research 博報堂の企業概要と主要事業　結果は notes/info_overview.md に保存して
 ```
 
 Claude が Web 検索を実行し、概要・主要ポイント・情報源をまとめたレポートを生成します。
@@ -145,50 +155,19 @@ Web 検索: "博報堂 グループ会社 売上高"
 - 博報堂 IR ページ
 
 ---
-notes/ フォルダに保存しますか？
+notes/info_overview.md に保存しました。
 ```
 
-### 4-2. writer に文書化を依頼する
-
-調査結果をもとに、読みやすい文書にまとめてもらいます。
-
-```
-> この調査結果をもとに、writer エージェントで
-  info/overview.md にまとめてほしい
-```
-
-```
-[writer 起動]
-調査結果を読み込み中...
-
-info/overview.md を作成します。よいですか？ [y/n]
-```
-
-`y` を押すと文書が生成されます。
-
-```
-作成完了: info/overview.md
-
-# 博報堂 企業概要
-
-**調査日**: 2026-03-09
-
-## エグゼクティブサマリー
-
-...（文書の内容）...
-```
-
-### 4-3. reviewer に品質チェックを依頼する
+### 4-2. /reviewer で品質チェックをする
 
 作成した文書の内容を確認してもらいます。
 
 ```
-> reviewer エージェントで info/overview.md をレビューして
+> /reviewer notes/info_overview.md
 ```
 
 ```
-[reviewer 起動]
-info/overview.md を読み込み中...
+notes/info_overview.md を読み込み中...
 
 ## レビュー結果
 
@@ -202,17 +181,16 @@ info/overview.md を読み込み中...
 - グループ会社の記載が少ない。主要3社を追記すると良い
 ```
 
-### 4-4. フィードバックを反映する
+### 4-3. フィードバックを反映する
 
-reviewer の指摘をもとに、再度 writer に修正を依頼できます。
-
-```
-> reviewer の指摘を反映して、主要グループ会社を追記してほしい
-```
+/reviewer の指摘をもとに修正を依頼できます。
 
 ```
-[writer 起動]
-info/overview.md を更新します。
+> /reviewer の指摘を反映して、主要グループ会社を追記してほしい
+```
+
+```
+notes/info_overview.md を更新しました。
 
 博報堂 DY メディアパートナーズ・SIX・アドバンス・クリエーションを追記しました。
 ```
@@ -223,12 +201,12 @@ info/overview.md を更新します。
 
 | フェーズ | やること |
 |---|---|
-| bash | Superpowers プラグインインストール |
+| bash | カスタムコマンド作成・プラグインインストール |
 | Claude 起動 | `claude` で対話モードへ |
-| Claude 内 | researcher → writer → reviewer の流れで作業 |
+| Claude 内 | /research → /reviewer の流れで作業 |
 
-エージェントを使うことで、「調査 → 文書化 → レビュー」の流れが Claude との会話だけで完結します。次章ではこのリサーチをさらに深める方法を学びます。
+カスタムコマンドを使うことで、「調査 → レビュー」の流れが Claude との会話だけで完結します。次章では Git の基本概念を学びます。
 
 ---
 
-← [前の章: Claude Code の使い方](./05_claude_usage.md) ｜ [次の章: Claude でリサーチ →](./07_research_with_claude.md)
+← [前の章: Claude Code の使い方](./06_claude_usage.md) ｜ [次の章: Git の基本概念 →](./08_git_internals.md)

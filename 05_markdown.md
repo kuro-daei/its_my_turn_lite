@@ -1,4 +1,4 @@
-# 09. Markdown 記法
+# 05. Markdown 記法
 
 **Claude は起動したまま、この章の内容を進めてください。**
 実践では、Apple との打ち合わせメモを Markdown で作成し、ブランチ経由で push します。
@@ -519,4 +519,4 @@ fi
 
 ---
 
-← [前の章: GitHub に公開（チーム）](./11_github_publish.md) ｜ [次の章: ブランチ戦略 →](./13_branch_strategy.md)
+← [前の章: Bash コマンド入門](./04_bash_basics.md) ｜ [次の章: Claude Code の使い方 →](./06_claude_usage.md)
