@@ -484,12 +484,11 @@ gh CLI（GitHub CLI）は、コマンドラインから GitHub の操作（Issue
 
 ### なぜ Snap 版ではなく APT リポジトリを使うのか
 
-Ubuntu には `snap` というパッケージ管理ツールもありますが、**gh CLI の Snap 版は SSH キーにアクセスできない制限**があります。
-GitHub の認証で SSH を使う場合、Snap 版は正しく動作しません。
+Ubuntu には `snap` というパッケージ管理ツールもありますが、**gh CLI の Snap 版はバージョンが古いことがあり、最新機能が使えない場合**があります。
 必ず以下の**公式 APT リポジトリ**を使う方法でインストールしてください。
 
 > [!IMPORTANT]
-> `sudo snap install gh` は使用しないでください。SSH 認証が機能しない場合があります。
+> `sudo snap install gh` は使用しないでください。最新版が提供されない場合があります。
 
 ### 7-1. 必要なパッケージをインストールする
 
@@ -552,19 +551,11 @@ gh auth login
 
 ```
 ? What is your preferred protocol for Git operations on this host?  [Use arrows to move, type to filter]
-> SSH
-  HTTPS
+  SSH
+> HTTPS
 ```
 
-「SSH」を選択します。
-
-```
-? Upload your SSH public key to your GitHub account?  [Use arrows to move, type to filter]
-> /home/username/.ssh/id_ed25519.pub
-  Skip
-```
-
-先ほど生成した公開鍵を選択します。
+「HTTPS」を選択します。
 
 ```
 ? How would you like to authenticate GitHub CLI?  [Use arrows to move, type to filter]
@@ -594,7 +585,7 @@ gh auth status
 github.com
   ✓ Logged in to github.com account username (keyring)
   - Active account: true
-  - Git operations protocol: ssh
+  - Git operations protocol: https
   - Token: gho_****
   - Token scopes: 'gist', 'read:org', 'repo', 'workflow'
 ```

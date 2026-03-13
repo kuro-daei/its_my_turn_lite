@@ -34,8 +34,8 @@ claude -p "README.md の内容を要約して" --output-format json
 シェルスクリプトや定期実行ジョブに組み込むと便利です。
 
 ```bash
-# 例: 毎朝 notes/ の内容を一行サマリーする
-claude -p "notes/ フォルダ内のファイルを一覧して、各ファイルの内容を1行で要約して" \
+# 例: 毎朝 info/ の内容を一行サマリーする
+claude -p "info/ フォルダ内のファイルを一覧して、各ファイルの内容を1行で要約して" \
   --output-format text
 ```
 

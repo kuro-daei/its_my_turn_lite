@@ -56,7 +56,7 @@ Claude に次のように依頼します。
 
 ```
 > ~/.claude/commands/research.md を作って。
-  内容は「$ARGUMENTS についてWebを検索して調査し、概要・主要ポイント・情報源をMarkdown形式でまとめる。完了後に notes/ フォルダへの保存を提案する」というリサーチ用コマンド
+  内容は「$ARGUMENTS についてWebを検索して調査し、概要・主要ポイント・情報源をMarkdown形式でまとめる。完了後に info/ フォルダへの保存を提案する」というリサーチ用コマンド
 ```
 
 続けて reviewer コマンドも作ります。
@@ -127,7 +127,7 @@ MCP と Plugin が `✓` になっていれば準備完了です。
 先ほど作った `/research` コマンドを使ってリサーチします。
 
 ```
-> /research 博報堂の企業概要と主要事業　結果は notes/info_overview.md に保存して
+> /research 博報堂の企業概要と主要事業　結果は info/info_overview.md に保存して
 ```
 
 Claude が Web 検索を実行し、概要・主要ポイント・情報源をまとめたレポートを生成します。
@@ -155,7 +155,7 @@ Web 検索: "博報堂 グループ会社 売上高"
 - 博報堂 IR ページ
 
 ---
-notes/info_overview.md に保存しました。
+info/info_overview.md に保存しました。
 ```
 
 ### 4-2. /reviewer で品質チェックをする
@@ -163,11 +163,11 @@ notes/info_overview.md に保存しました。
 作成した文書の内容を確認してもらいます。
 
 ```
-> /reviewer notes/info_overview.md
+> /reviewer info/info_overview.md
 ```
 
 ```
-notes/info_overview.md を読み込み中...
+info/info_overview.md を読み込み中...
 
 ## レビュー結果
 
@@ -190,7 +190,7 @@ notes/info_overview.md を読み込み中...
 ```
 
 ```
-notes/info_overview.md を更新しました。
+info/info_overview.md を更新しました。
 
 博報堂 DY メディアパートナーズ・SIX・アドバンス・クリエーションを追記しました。
 ```

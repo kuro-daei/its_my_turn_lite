@@ -34,7 +34,7 @@
           ▼
 
 [各自が自分の作業]
- 担当ファイルを Claude でリサーチ → apple/notes/ に保存
+ 担当ファイルを Claude でリサーチ → apple/info/ に保存
 
           │
           ▼
@@ -55,14 +55,14 @@
 
 | 担当者 | 作成するファイル | 内容 |
 |---|---|---|
-| Aさん（例: オーナー） | `notes/overview.md` | Apple 社の企業概要 |
-| Bさん（例: メンバー） | `notes/products.md` | 主要製品・サービス一覧 |
+| Aさん（例: オーナー） | `info/overview.md` | Apple 社の企業概要 |
+| Bさん（例: メンバー） | `info/products.md` | 主要製品・サービス一覧 |
 
 3人チームの場合は、さらに追加分担できます。
 
 | 担当者 | 作成するファイル | 内容 |
 |---|---|---|
-| Cさん | `notes/japan.md` | 日本市場への展開・日本法人情報 |
+| Cさん | `info/japan.md` | 日本市場への展開・日本法人情報 |
 
 ---
 
@@ -79,11 +79,11 @@
 調査結果が出たら保存します。
 
 ```
-> この内容を notes/overview.md として保存して
+> この内容を info/overview.md として保存して
 ```
 
 ```
-notes/overview.md を作成します。よいですか？ [y/n]
+info/overview.md を作成します。よいですか？ [y/n]
 ```
 
 `y` を押すと保存されます。
@@ -91,7 +91,7 @@ notes/overview.md を作成します。よいですか？ [y/n]
 ```
 【この時点の状態（Aさん）】
 ワーキングツリー              ローカルRepo       GitHub (main)
-  notes/overview.md ★                             （まだ空）
+  info/overview.md ★                             （まだ空）
   （保存済み・未コミット）
 ```
 
@@ -106,13 +106,13 @@ notes/overview.md を作成します。よいですか？ [y/n]
 調査結果が出たら保存します。
 
 ```
-> この内容を notes/products.md として保存して
+> この内容を info/products.md として保存して
 ```
 
 ```
 【この時点の状態（Bさん）】
 ワーキングツリー              ローカルRepo       GitHub (main)
-  notes/products.md ★                             （まだ空）
+  info/products.md ★                             （まだ空）
   （保存済み・未コミット）
 ```
 
@@ -159,8 +159,8 @@ push が完了したら、お互いの変更を pull します。
 
 ```
 ✓ リモートから変更を取得しました
-  notes/overview.md  （Aさんが追加）
-  notes/products.md  （Bさんが追加）
+  info/overview.md  （Aさんが追加）
+  info/products.md  （Bさんが追加）
 ```
 
 ```
@@ -174,17 +174,17 @@ Aさんのローカル (main)     GitHub (main)      Bさんのローカル (mai
 ### 相手のファイルを確認する
 
 ```
-> notes/overview.md の内容を見せて
+> info/overview.md の内容を見せて
 ```
 
 ```
-> notes/products.md の内容を見せて
+> info/products.md の内容を見せて
 ```
 
 内容に気になる点があれば、その場で Claude に修正を依頼できます。
 
 ```
-> notes/overview.md の「事業内容」の部分をもう少し詳しくして
+> info/overview.md の「事業内容」の部分をもう少し詳しくして
 ```
 
 ---
@@ -195,7 +195,7 @@ Aさんのローカル (main)     GitHub (main)      Bさんのローカル (mai
 
 ```
 apple/
-└── notes/
+└── info/
     ├── overview.md    ← Aさんが作成（Apple 企業概要）
     └── products.md    ← Bさんが作成（主要製品・サービス一覧）
 ```
@@ -203,10 +203,10 @@ apple/
 | ステップ | Claude への指示例 |
 |---|---|
 | リサーチ | `> Apple 社の企業概要を調べて、Markdown でまとめて` |
-| ファイル保存 | `> notes/overview.md として保存して` |
-| コミット・push | `> notes/ の変更をコミットして push して` |
+| ファイル保存 | `> info/overview.md として保存して` |
+| コミット・push | `> info/ の変更をコミットして push して` |
 | 最新取得 | `> 最新の変更を pull して` |
-| 内容確認 | `> notes/products.md の内容を見せて` |
+| 内容確認 | `> info/products.md の内容を見せて` |
 
 チームで分担することで、短時間で多くの情報を整理できます。
 次章では Markdown の記法を学びます。
