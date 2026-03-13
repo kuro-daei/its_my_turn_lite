@@ -61,7 +61,7 @@ A     B     C     D
 3 人が `main` に直接 push したとします。
 
 ```
-Aさん ──push──▶ main  ← notes/overview.md を更新
+Aさん ──push──▶ main  ← info/overview.md を更新
 Bさん ──push──▶ main  ← Aさんの変更を上書きしてしまった！
 Cさん ──push──▶ main  ← Bさんが消した内容をさらに上書き…
 ```
@@ -125,7 +125,7 @@ main ─────────────────────────
 
 ### 実践：ファイルをブランチで更新する
 
-チームで `apple/notes/` のファイルを分担して更新します。
+チームで `apple/info/` のファイルを分担して更新します。
 
 #### ステップ 1：main を最新にしてブランチを作る
 
@@ -146,13 +146,13 @@ main ─────────────────────────
 **Aさんの場合:**
 
 ```
-> notes/overview.md の「売上高」を最新の数字に更新して
+> info/overview.md の「売上高」を最新の数字に更新して
 ```
 
 **Bさんの場合:**
 
 ```
-> notes/products.md に Vision Pro の情報を追記して
+> info/products.md に Vision Pro の情報を追記して
 ```
 
 #### ステップ 3：コミットして push する

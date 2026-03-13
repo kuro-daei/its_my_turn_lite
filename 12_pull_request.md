@@ -134,7 +134,7 @@ state:  OPEN
 author: Bさん
 
 変更内容:
-  notes/products.md — 3 lines added
+  info/products.md — 3 lines added
 ```
 
 差分も確認できます。
@@ -160,7 +160,7 @@ author: Bさん
 指摘を受けた側は修正して追加コミットします。
 
 ```
-> notes/products.md の価格を修正して、コミットして push して
+> info/products.md の価格を修正して、コミットして push して
 ```
 
 push すると自動的に同じ PR に追加されます。
@@ -191,8 +191,8 @@ push すると自動的に同じ PR に追加されます。
 
 GitHub (main)                        全員のローカル (main)
   ●──────────────────────●    ◀──── git pull ────   ●
-                          ↑                          notes/overview.md ★
-                  PR #1 マージ済み                   notes/products.md ★
+                          ↑                          info/overview.md ★
+                  PR #1 マージ済み                   info/products.md ★
   feature/update-overview: 削除済み
 ```
 

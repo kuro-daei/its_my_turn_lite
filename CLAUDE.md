@@ -82,7 +82,7 @@ ssh -T git@github.com      # 接続テスト
 
 - 操作手順はすべて Claude への指示形式（`>` プロンプト）で記述する
 - コマンドラインが必須の操作には `> **⚠️ コマンドライン操作:**` 注意書きを付ける
-- 調査メモのファイルは `notes/` フォルダに格納、名前はハイフン区切り（例: `notes/financial-research.md`）
+- 調査メモのファイルは `info/` フォルダに格納、名前はハイフン区切り（例: `info/financial-research.md`）
 - シナリオの作業ディレクトリは `~/works/client-research`、リポジトリ名は `client-research`
 - `git checkout` は使わず `git switch` で統一する
 
